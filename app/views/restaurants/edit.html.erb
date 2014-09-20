@@ -1,0 +1,55 @@
+<h1>Edit a Restaurant</h1>
+
+<%= form_for @restaurant do |f| %>
+
+  <% if @restaurant.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@restaurant.errors.count, "error") %> prohibited
+      this restaurant from being posted:</h2>
+    <ul>
+    <% @restaurant.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <p>
+  <%= f.label :name %>:
+  <%= f.text_field :name %>
+  </p>
+
+  <p>
+  <%= f.label :address %>:
+  <%= f.text_field :address %>
+  </p>
+
+  <p>
+  <%= f.label :city %>:
+  <%= f.text_field :city %>
+
+  <%= f.label :state %>:
+  <%= f.text_field :state %>
+
+  <%= f.label :zip_code %>:
+  <%= f.text_field :zip_code %>
+  </p>
+
+  <p>
+  <%= f.label :category %>:
+  <%= f.text_field :category %>
+  </p>
+
+  <p>
+  <%= f.label :description %>:<br />
+  <%= f.text_area :description, size: "60x12" %>
+  </p>
+
+  <p>
+  <%= f.submit "Submit" %>
+  </p>
+<% end %>
+
+<br />
+<%= link_to 'Back', @restaurant %>
+<br />

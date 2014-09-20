@@ -4,4 +4,8 @@
 
 <h4><%= @restaurant.description %></h4>
 
+<p><%= link_to "Edit", edit_restaurant_path %> <%= link_to 'Delete', @restaurant,
+            method: :delete,
+            data: { confirm: 'Are you sure?' } %></p>
+
 <p><%= link_to "Back", restaurants_path %></p>
