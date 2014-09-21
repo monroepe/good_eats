@@ -1,0 +1,33 @@
+<h3>Review <%= @restaurant.name %></h3>
+
+<%= form_for [@restaurant, @review], url: {action: "create"} do |f| %>
+
+  <% if @review.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@review.errors.count, "error") %> prohibited
+      this review from being posted:</h2>
+    <ul>
+    <% @review.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <p>
+  <%= f.label :rating %> (0-5): <%= f.text_field :rating %>
+  </p>
+
+  <p>
+  <%= f.label :review %>:<br />
+  <%= f.text_area :body, size: "60x12" %>
+  </p>
+
+  <p>
+  <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+
+<%= link_to "Back", @restaurant %>
+<br />

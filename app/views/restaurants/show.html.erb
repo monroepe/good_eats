@@ -8,4 +8,18 @@
             method: :delete,
             data: { confirm: 'Are you sure?' } %></p>
 
+
+<h3>Reviews</h3>
+
+  <ul>
+    <% @reviews.each do |review| %>
+    <li>
+    <h3><%= review.rating %> (of 5) Stars</h3>
+    <%= review.body %>
+    </li>
+    <%end%>
+  </ul>
+
+<p><%= link_to "Review #{@restaurant.name}", new_restaurant_review_path(@restaurant) %></p>
+
 <p><%= link_to "Back", restaurants_path %></p>
